@@ -1,0 +1,105 @@
+== Welcome to Eve Online on Rails
+
+This is just a simple Rails app for Eve online, designed to work directly from
+the CCP database toolkit: http://community.eveonline.com/community/toolkit.asp.  
+The database is modified to denormalize it for performance and add functionality but 
+it is a prerequisite to obtain the mysql dump of this data to be able to use 
+this infrastructure.  You can convert the data from MSSQL yourself or use
+one dumped by the Eve community.  We have found that http://www.fuzzwork.co.uk/dump/
+are of good quality (because getting all the records out of the MS product is
+tricky) 
+
+== Quick Start
+
+* Seed your database with the CCP toolkit. 
+* Install the prerequisite gems from the bundle.  
+* Edit your database config and run the migrations (enhances the database a bit
+for performance)
+* Run the test suite to make sure the schema you used is not broken (rake spec)  
+* Finally, start writing your app, but look at the models to get an idea of the 
+object relationships so you know how to begin.
+
+Tested on:
+
+ruby-1.9.3-p125 (with openssl 0.9.8t)
+mysql Ver 14.14 Distrib 5.5.8
+Crucible 1.6 CCP "toolkit"
+
+== Pubby Instructions
+
+This is the section for all the pubbies out there that need some extra handholding,
+because admit it, you're dumb.  I'll attempt to spell out each step in excruciating
+detail so that you can cut and paste and get on with your flailing at the even harder 
+parts.  I'll go through the exact steps that I had to go through to get this working.
+Keep in mind that if you are on a Windows machine you are in trouble because developing
+on Windows is something that I refuse to do, and I will ignore all requests for help
+with cygwin or RailsInstaller or whatever crap is used nowadays to force rails onto
+Windows boxen.
+
+* Get the CCP "toolkit" and put it in a database.  This codebase was tested with mysql
+but other database engines might work.  The easiest thing to do is download the 
+pre-converted {Crucible 1.6 toolkit}[http://www.fuzzwork.co.uk/dump/] from fuzzwork
+and use that.  Some commands that might work:
+
+  bunzip2 mysql55-cru16.sql.bz2
+  mysql -uroot -e "create database 'eve_production'"
+  mysql -uroot eve_production <mysql55-cru16.sql 
+
+* {Install rvm}[https://rvm.beginrescueend.com/rvm/install/]: you need it.  Follow
+the instructions on Wayne's rvm site.
+
+* With rvm installed, install ruby, but before that it might be a good idea
+to install openssl too especially if you are on OSX (because you will 
+{seg fault}[http://sanjusoftware.wordpress.com/2012/03/25/segmentation-fault-ruby-1-9-3-p125-and-rvm/])
+
+  rvm pkg install openssl
+  rvm install 1.9.3-p125 "--with-openssl-dir=$rvm_path/usr"
+
+(or substitute your favorite ruby above, but do so at your own risk)
+
+* Next git the eve-online-rails codebase:
+
+  mkdir eve-online-rails
+  cd eve-online-rails
+  git clone git://github.com/viciousCoder/eve-online-rails.git
+
+* Create a gemset and install the bundle
+
+  rvm create gemset eve-online-rails
+  rvm gemset use eve-online-rails
+  bundle install
+
+* Edit the config/database.yml to contain the correct path to your database with appropriate user and password
+
+* Run the migrations
+
+  rake db:migrate
+
+* Run the tests!
+
+  rake spec
+
+* Now what you do is up to you.  I would look at the models to see the relationships (rdoc 
+coming when I get around to it).  Run the rails console to get a feel for the ORM, and start coding
+up controllers/views.
+
+* ????
+
+* profit!
+  
+== Testing with rspec and watchr
+
+I prefer a BDD style development methodology, and as such I have provided some tools to
+aid in BDD yumminess.  {Watchr}[https://github.com/mynyml/watchr] and {spork}[https://github.com/sporkrb/spork] provide a lightning-fast BDD development
+environment in this codebase, not to mention rspec with shoulda. The shoulda tests are there since
+this project is more of a scaffold so without business logic to test in the controllers they are a
+necessary evil (IMO, I usually don't use shoulda, but here it was handy).  To start up the 
+testing environment:
+
+  spork
+
+Then in another window:
+
+  rake watchr
+
+And now watchr will run the spec as you change the code automatically in the background.
