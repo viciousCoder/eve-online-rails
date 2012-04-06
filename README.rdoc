@@ -20,9 +20,9 @@ a long and arduous process, and there is no way I'll take the time to explain ho
 
 Tested on:
 
-ruby-1.9.3-p125 (with openssl 0.9.8t)
-mysql Ver 14.14 Distrib 5.5.8
-Crucible 1.6 CCP "toolkit"
+* ruby-1.9.3-p125 (with openssl 0.9.8t)
+* mysql Ver 14.14 Distrib 5.5.8
+* Crucible 1.6 CCP "toolkit"
 
 == Pubby Instructions
 
@@ -40,9 +40,9 @@ Windows boxen.
   pre-converted {Crucible 1.6 toolkit}[http://www.fuzzwork.co.uk/dump/] from fuzzwork
   and use that.  Some commands that might work:
 
-  bunzip2 mysql55-cru16.sql.bz2
-  mysql -uroot -e "create database 'eve_production'"
-  mysql -uroot eve_production <mysql55-cru16.sql 
+    bunzip2 mysql55-cru16.sql.bz2
+    mysql -uroot -e "create database 'eve_production'"
+    mysql -uroot eve_production <mysql55-cru16.sql 
 
 * {Install rvm}[https://rvm.beginrescueend.com/rvm/install/]: you need it.  Follow
   the instructions on Wayne's rvm site.
@@ -51,32 +51,32 @@ Windows boxen.
   to install openssl too especially if you are on OSX (because you will 
   {seg fault}[http://sanjusoftware.wordpress.com/2012/03/25/segmentation-fault-ruby-1-9-3-p125-and-rvm/])
 
-  rvm pkg install openssl
-  rvm install 1.9.3-p125 "--with-openssl-dir=$rvm_path/usr"
+    rvm pkg install openssl
+    rvm install 1.9.3-p125 "--with-openssl-dir=$rvm_path/usr"
 
 (or substitute your favorite ruby above, but do so at your own risk)
 
 * Next git the eve-online-rails codebase:
 
-  mkdir eve-online-rails
-  cd eve-online-rails
-  git clone git://github.com/viciousCoder/eve-online-rails.git
+    mkdir eve-online-rails
+    cd eve-online-rails
+    git clone git://github.com/viciousCoder/eve-online-rails.git
 
 * Create a gemset and install the bundle
 
-  rvm create gemset eve-online-rails
-  rvm gemset use eve-online-rails
-  bundle install
+    rvm create gemset eve-online-rails
+    rvm gemset use eve-online-rails
+    bundle install
 
 * Edit the config/database.yml to contain the correct path to your database with appropriate user and password
 
 * Run the migrations
 
-  rake db:migrate
+    rake db:migrate
 
 * Run the tests!
 
-  rake spec
+    rake spec
 
 * Now what you do is up to you.  I would look at the models to see the relationships (rdoc 
   coming when I get around to it).  Run the rails console to get a feel for the ORM, and start coding
