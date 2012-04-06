@@ -66,6 +66,7 @@ Windows boxen.
 
     rvm gemset create eve-online-rails
     rvm gemset use eve-online-rails
+    gem install bundler
     bundle install
 
 * Edit the config/database.yml to contain the correct path to your database with appropriate user and password
