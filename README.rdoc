@@ -64,7 +64,7 @@ Windows boxen.
 
 * Create a gemset and install the bundle
 
-    rvm create gemset eve-online-rails
+    rvm gemset create eve-online-rails
     rvm gemset use eve-online-rails
     bundle install
 
