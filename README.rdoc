@@ -1,23 +1,22 @@
 == Welcome to Eve Online on Rails
 
 This is just a simple Rails app for Eve online, designed to work directly from
-the CCP database toolkit: http://community.eveonline.com/community/toolkit.asp.  
+the {CCP database toolkit}[http://community.eveonline.com/community/toolkit.asp].  
 The database is modified to denormalize it for performance and add functionality but 
 it is a prerequisite to obtain the mysql dump of this data to be able to use 
 this infrastructure.  You can convert the data from MSSQL yourself or use
-one dumped by the Eve community.  We have found that http://www.fuzzwork.co.uk/dump/
-are of good quality (because getting all the records out of the MS product is
-tricky) 
+one dumped by the Eve community.  We have found that {the fuzzwork data}[http://www.fuzzwork.co.uk/dump/]
+is of good quality (because getting all the records out of the MS product is
+a long and arduous process, and there is no way I'll take the time to explain how to do that) 
 
 == Quick Start
 
 * Seed your database with the CCP toolkit. 
 * Install the prerequisite gems from the bundle.  
-* Edit your database config and run the migrations (enhances the database a bit
-for performance)
+* Edit your database config and run the migrations (enhances the database a bit for performance)
 * Run the test suite to make sure the schema you used is not broken (rake spec)  
-* Finally, start writing your app, but look at the models to get an idea of the 
-object relationships so you know how to begin.
+* Finally, start writing your app, but look at the models to get an idea of the object 
+  relationships so you know how to begin.
 
 Tested on:
 
@@ -37,20 +36,20 @@ with cygwin or RailsInstaller or whatever crap is used nowadays to force rails o
 Windows boxen.
 
 * Get the CCP "toolkit" and put it in a database.  This codebase was tested with mysql
-but other database engines might work.  The easiest thing to do is download the 
-pre-converted {Crucible 1.6 toolkit}[http://www.fuzzwork.co.uk/dump/] from fuzzwork
-and use that.  Some commands that might work:
+  but other database engines might work.  The easiest thing to do is download the 
+  pre-converted {Crucible 1.6 toolkit}[http://www.fuzzwork.co.uk/dump/] from fuzzwork
+  and use that.  Some commands that might work:
 
   bunzip2 mysql55-cru16.sql.bz2
   mysql -uroot -e "create database 'eve_production'"
   mysql -uroot eve_production <mysql55-cru16.sql 
 
 * {Install rvm}[https://rvm.beginrescueend.com/rvm/install/]: you need it.  Follow
-the instructions on Wayne's rvm site.
+  the instructions on Wayne's rvm site.
 
 * With rvm installed, install ruby, but before that it might be a good idea
-to install openssl too especially if you are on OSX (because you will 
-{seg fault}[http://sanjusoftware.wordpress.com/2012/03/25/segmentation-fault-ruby-1-9-3-p125-and-rvm/])
+  to install openssl too especially if you are on OSX (because you will 
+  {seg fault}[http://sanjusoftware.wordpress.com/2012/03/25/segmentation-fault-ruby-1-9-3-p125-and-rvm/])
 
   rvm pkg install openssl
   rvm install 1.9.3-p125 "--with-openssl-dir=$rvm_path/usr"
@@ -80,8 +79,8 @@ to install openssl too especially if you are on OSX (because you will
   rake spec
 
 * Now what you do is up to you.  I would look at the models to see the relationships (rdoc 
-coming when I get around to it).  Run the rails console to get a feel for the ORM, and start coding
-up controllers/views.
+  coming when I get around to it).  Run the rails console to get a feel for the ORM, and start coding
+  up controllers/views.
 
 * ????
 
