@@ -9,4 +9,6 @@ class EveIcon < ActiveRecord::Base
   has_many :corporations, :foreign_key => :iconID, :class_name => CrpNpcCorporation
   has_many :certificates, :foreign_key => :iconID, :class_name => CrtCertificate
   has_many :item_attributes, :foreign_key => :iconID, :class_name => DgmAttributeType
+  has_many :categories, :foreign_key => :iconID, :class_name => InvCategory
+  has_many :groups, :foreign_key => :iconID, :class_name => InvGroup
 end

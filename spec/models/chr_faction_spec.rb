@@ -13,4 +13,7 @@ describe ChrFaction do
   it { should belong_to(:militia) }  
   it { should belong_to(:icon) }
   it { should have_many(:corporations) }
+  it { should have_many(:contrabands) }
+  # it { should have_and_belong_to_many(:contraband_types) }
+  it { should have_many(:control_tower_resources) }
 end

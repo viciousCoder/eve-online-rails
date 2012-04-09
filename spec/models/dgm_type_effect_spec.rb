@@ -7,4 +7,6 @@ describe DgmTypeEffect do
   it 'should be an instance of DgmTypeAttribute' do
     @dgm_object.should be_an_instance_of DgmTypeAttribute
   end
+  it { should belong_to(:inv_type) }
+  it { should belong_to(:effect) }
 end

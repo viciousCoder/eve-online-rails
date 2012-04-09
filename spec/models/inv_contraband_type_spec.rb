@@ -7,4 +7,6 @@ describe InvContrabandType do
   it 'should be an instance of InvContrabandType' do
     @inv_contraband_type.should be_an_instance_of InvContrabandType
   end
+  it { should belong_to(:faction) }
+  it { should belong_to(:type) }
 end

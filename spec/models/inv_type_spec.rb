@@ -13,4 +13,18 @@ describe InvType do
   # it { should have_and_belong_to_many(:research_corporations) }
   # it { should have_and_belong_to_many(:trade_corporations) }
   it { should have_many(:certificate_recommendations) }
+  # it { should have_and_belong_to_many(:certificate_dependencies) }
+  it { should have_many(:type_attributes) }
+  # it { should have_and_belong_to_many(:attributes) }
+  it { should have_many(:type_effects) }
+  # it { should have_and_belong_to_many(:effects) }
+  it { should have_one(:blueprint_data) }
+  it { should have_many(:parent_blueprints) }
+  it { should have_one(:product_blueprint_data) }
+  it { should have_many(:contrabands) }
+  # it { should have_and_belong_to_many(:contraband_for_factions) }
+  it { should have_many(:control_tower_requirements) }
+  # it { should have_and_belong_to_many(:control_tower_resources) }
+  it { should have_many(:required_for_control_tower) }
+  # it { should have_and_belong_to_many(:resource_for_control_towers) }
 end

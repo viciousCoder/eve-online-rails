@@ -7,4 +7,6 @@ describe InvCategory do
   it 'should be an instance of InvCategory' do
     @inv_category.should be_an_instance_of InvCategory
   end
+  it { should belong_to(:icon) }
+  it { should have_many(:groups) }
 end

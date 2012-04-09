@@ -7,4 +7,5 @@ describe InvControlTowerResourcePurpose do
   it 'should be an instance of InvControlTowerResourcePurpose' do
     @inv_object.should be_an_instance_of InvControlTowerResourcePurpose
   end
+  it { should have_many(:control_tower_resources) }
 end

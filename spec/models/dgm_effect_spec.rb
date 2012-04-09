@@ -16,4 +16,6 @@ describe DgmEffect do
   it { should belong_to(:npc_usage_chance_attribute) }
   it { should belong_to(:npc_activation_chance_attribute) }
   it { should belong_to(:fitting_usage_chance_attribute) }
+  it { should have_many(:type_effects) }
+  # it { should have_and_belong_to_many(:inv_types) }
 end
