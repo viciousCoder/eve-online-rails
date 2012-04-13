@@ -16,4 +16,7 @@ describe EveIcon do
   it { should have_many(:certificates) }
   it { should have_many(:item_attributes) }
   it { should have_many(:categories) }
+  it { should have_many(:groups) }
+  it { should have_many(:market_groups) }
+  it { should have_many(:types) }
 end

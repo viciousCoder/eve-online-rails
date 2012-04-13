@@ -7,4 +7,5 @@ describe InvMetaGroup do
   it 'should be an instance of InvMetaGroup' do
     @inv_object.should be_an_instance_of InvMetaGroup
   end
+  it { should have_many(:meta_types) }
 end

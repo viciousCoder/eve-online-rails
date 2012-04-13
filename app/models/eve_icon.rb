@@ -11,4 +11,6 @@ class EveIcon < ActiveRecord::Base
   has_many :item_attributes, :foreign_key => :iconID, :class_name => DgmAttributeType
   has_many :categories, :foreign_key => :iconID, :class_name => InvCategory
   has_many :groups, :foreign_key => :iconID, :class_name => InvGroup
+  has_many :market_groups, :foreign_key => :iconID, :class_name => InvMarketGroup
+  has_many :types, :foreign_key => :iconID, :class_name => InvType
 end

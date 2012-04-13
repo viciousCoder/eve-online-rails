@@ -7,4 +7,5 @@ describe EveGraphic do
   it 'should be an instance of EveGraphic' do
     @dgm_object.should be_an_instance_of EveGraphic
   end
+  it { should have_many(:types) }
 end

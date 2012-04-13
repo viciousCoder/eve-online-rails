@@ -4,4 +4,5 @@ class ChrRace < ActiveRecord::Base
   has_many :bloodlines, :foreign_key => :raceID, :class_name => ChrBloodline
   has_many :factions, :foreign_key => :raceIDs, :class_name => ChrFaction
   belongs_to :icon, :foreign_key => :iconID, :class_name => EveIcon
+  has_many :types, :foreign_key => :raceID, :class_name => InvType
 end

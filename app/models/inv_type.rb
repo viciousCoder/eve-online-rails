@@ -1,14 +1,6 @@
 class InvType < ActiveRecord::Base
   self.primary_key = :typeID
-  self.table_name = :InvTypes
-  belongs_to :group, :foreign_key => :groupID, :class_name => InvGroup
-  belongs_to :market_group, :foreign_key => :marketGroupID, :class_name => InvMarketGroup
-  has_one :meta_type, :foreign_key => :parentTypeID, :class_name => InvMetaType
-  has_many :reactions, :foreign_key => :reactionTypeID, :class_name => InvTypeReaction
-  has_many :reaction_type, :foreign_key => :typeID, :class_name => InvTypeReaction
-  has_many :make_from, :foreign_key => :typeID, :class_name => InvTypeMaterial
-  has_many :used_to_make, :foreign_key => :materialTypeID, :class_name => InvTypeMaterial
-  
+  self.table_name = :InvTypes  
   has_and_belongs_to_many :research_agents, :join_table => :agtResearchAgents, :class_name => AgtAgent, :foreign_key => :typeID, :association_foreign_key => :agentID
   has_many :bloodlines, :foreign_key => :shipTypeID, :class_name => ChrBloodline
   has_and_belongs_to_many :research_corporations, :join_table => :crpNpcCorporationResearchFields, :class_name => CrpNpcCorporation, :foreign_key => :skillID, :association_foreign_key => :corporationID
@@ -28,6 +20,28 @@ class InvType < ActiveRecord::Base
   has_and_belongs_to_many :control_tower_resources, :join_table => :invControlTowerResources, :class_name => InvType, :foreign_key => :controlTowerTypeID, :association_foreign_key => :resourceTypeID
   has_many :required_for_control_tower, :foreign_key => :resourceTypeID, :class_name => InvControlTowerResource
   has_and_belongs_to_many :resource_for_control_towers, :join_table => :invControlTowerResources, :class_name => InvType, :foreign_key => :resourceTypeID, :association_foreign_key => :controlTowerTypeID
+  has_many :items, :foreign_key => :typeID, :class_name => InvItem
+  has_one :meta_type, :foreign_key => :typeID, :class_name => InvMetaType
+  has_many :meta_children, :foreign_key => :parentTypeID, :class_name => InvMetaType
+  has_and_belongs_to_many :meta_types, :join_table => :invMetaTypes, :class_name => InvType, :foreign_key => :parentTypeID, :association_foreign_key => :typeID
+  has_many :material, :foreign_key => :typeID, :class_name => InvTypeMaterial
+  has_many :material_for, :foreign_key => :materialTypeID, :class_name => InvTypeMaterial
+  has_and_belongs_to_many :materials, :join_table => :invTypeMaterials, :class_name => InvType, :foreign_key => :typeID, :association_foreign_key => :materialTypeID
+  has_and_belongs_to_many :materials_for, :join_table => :invTypeMaterials, :class_name => InvType, :foreign_key => :materialTypeID, :association_foreign_key => :typeID
+  has_many :reactions, :foreign_key => :reactionTypeID, :class_name => InvTypeReaction
+  has_many :type_reactions, :foreign_key => :typeID, :class_name => InvTypeReaction
+  has_many :reactant_reactions, :foreign_key => :typeID, :class_name => InvTypeReaction, :conditions => 'input = 1'
+  has_many :product_reactions, :foreign_key => :typeID, :class_name => InvTypeReaction, :conditions => 'input = 0'
+  has_and_belongs_to_many :used_for_reaction_types, :join_table => :invTypeReactions, :class_name => InvType, :foreign_key => :typeID, :association_foreign_key => :reactionTypeID
+  has_and_belongs_to_many :reactant_for_reaction_types, :join_table => :invTypeReactions, :class_name => InvType, :foreign_key => :typeID, :association_foreign_key => :reactionTypeID, :conditions => 'input = 1'
+  has_and_belongs_to_many :product_for_reaction_types, :join_table => :invTypeReactions, :class_name => InvType, :foreign_key => :typeID, :association_foreign_key => :reactionTypeID, :conditions => 'input = 0'
+  has_and_belongs_to_many :reaction_product_types, :join_table => :invTypeReactions, :class_name => InvType, :foreign_key => :reactionTypeID, :association_foreign_key => :typeID, :conditions => 'input = 0'
+  has_and_belongs_to_many :reaction_reactant_types, :join_table => :invTypeReactions, :class_name => InvType, :foreign_key => :reactionTypeID, :association_foreign_key => :typeID, :conditions => 'input = 1'
+  belongs_to :group, :foreign_key => :groupID, :class_name => InvGroup
+  belongs_to :graphic, :foreign_key => :graphicID, :class_name => EveGraphic
+  belongs_to :market_group, :foreign_key => :marketGroupID, :class_name => InvMarketGroup
+  belongs_to :race, :foreign_key => :raceID, :class_name => ChrRace
+  belongs_to :icon, :foreign_key => :iconID, :class_name => EveIcon
 end
 
 # example: getting all contraband: 

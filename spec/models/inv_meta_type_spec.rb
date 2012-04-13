@@ -7,4 +7,7 @@ describe InvMetaType do
   it 'should be an instance of InvMetaType' do
     @inv_object.should be_an_instance_of InvMetaType
   end
+  it { should belong_to(:inv_type) }
+  it { should belong_to(:parent_type) }
+  it { should belong_to(:meta_group) }
 end

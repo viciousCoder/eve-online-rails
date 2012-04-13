@@ -10,4 +10,5 @@ describe ChrRace do
   it { should have_many(:bloodlines) }
   it { should have_many(:factions) }
   it { should belong_to(:icon) }
+  it { should have_many(:types) }
 end

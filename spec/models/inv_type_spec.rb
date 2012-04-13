@@ -27,4 +27,17 @@ describe InvType do
   # it { should have_and_belong_to_many(:control_tower_resources) }
   it { should have_many(:required_for_control_tower) }
   # it { should have_and_belong_to_many(:resource_for_control_towers) }
+  it { should have_many(:items) }
+  it { should have_one(:meta_type) }
+  it { should have_many(:meta_children) }
+  # it { should have_and_belong_to_many(:meta_types) }
+  it { should have_many(:reactions) } # reaction intermediate join relation
+  it { should have_many(:reactant_reactions) } # reactions where this type is an input
+  it { should have_many(:product_reactions) } # reactions where this type is an output
+  it { should have_many(:type_reactions) } # reactions where this type is input or output
+  it { should belong_to(:group) }
+  it { should belong_to(:graphic) }
+  it { should belong_to(:race) }
+  it { should belong_to(:market_group) }
+  it { should belong_to(:icon) }
 end
