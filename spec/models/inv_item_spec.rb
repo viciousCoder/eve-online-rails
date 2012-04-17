@@ -9,6 +9,10 @@ describe InvItem do
   end
   it { should belong_to(:type) }
   it { should belong_to(:owner) }
-  it { should belong_to(:station) }
+  it { should belong_to(:location) }
   it { should belong_to(:flag) }
+  it { should have_one(:unique_name) }
+  it { should have_many(:items_owned) }
+  it { should have_many(:items_here) }
+  it { should have_one(:denormalize) }
 end

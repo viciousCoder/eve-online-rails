@@ -10,4 +10,5 @@ describe InvGroup do
   it { should belong_to(:category) }
   it { should belong_to(:icon) }
   it { should have_many(:types) }
+  it { should have_many(:items) }
 end

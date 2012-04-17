@@ -7,4 +7,6 @@ describe MapLocationScene do
   it 'should be an instance of MapLocationScene' do
     @map_object.should be_an_instance_of MapLocationScene
   end
+  it { should belong_to(:location) }
+  it { should belong_to(:graphic) }
 end

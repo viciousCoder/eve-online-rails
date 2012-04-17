@@ -42,6 +42,7 @@ class InvType < ActiveRecord::Base
   belongs_to :market_group, :foreign_key => :marketGroupID, :class_name => InvMarketGroup
   belongs_to :race, :foreign_key => :raceID, :class_name => ChrRace
   belongs_to :icon, :foreign_key => :iconID, :class_name => EveIcon
+  has_many :denormalized_items, :foreign_key => :typeID, :class_name => MapDenormalize
 end
 
 # example: getting all contraband: 

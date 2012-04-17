@@ -7,4 +7,6 @@ describe MapJump do
   it 'should be an instance of MapJump' do
     @map_object.should be_an_instance_of MapJump
   end
+  it { should belong_to(:stargate) }
+  it { should belong_to(:celestial) }
 end

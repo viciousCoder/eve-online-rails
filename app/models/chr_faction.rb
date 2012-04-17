@@ -10,4 +10,5 @@ class ChrFaction < ActiveRecord::Base
   has_many :contrabands, :foreign_key => :factionID, :class_name => InvContrabandType
   has_and_belongs_to_many :contraband_types, :join_table => :invContrabandTypes, :class_name => InvType, :foreign_key => :factionID, :association_foreign_key => :typeID
   has_many :control_tower_resources, :foreign_key => :factionID, :class_name => InvControlTowerResource
+  has_many :constellations, :foreign_key => :factionID, :class_name => MapConstellation
 end

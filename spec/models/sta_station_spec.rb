@@ -8,5 +8,4 @@ describe StaStation do
     @sta_object.should be_an_instance_of StaStation
   end
   it { should have_many(:agents) }
-  it { should have_many(:items) }
 end

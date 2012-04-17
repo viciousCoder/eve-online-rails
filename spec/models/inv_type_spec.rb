@@ -40,4 +40,5 @@ describe InvType do
   it { should belong_to(:race) }
   it { should belong_to(:market_group) }
   it { should belong_to(:icon) }
+  it { should have_many(:denormalized_items) }
 end

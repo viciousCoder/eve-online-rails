@@ -13,4 +13,5 @@ class EveIcon < ActiveRecord::Base
   has_many :groups, :foreign_key => :iconID, :class_name => InvGroup
   has_many :market_groups, :foreign_key => :iconID, :class_name => InvMarketGroup
   has_many :types, :foreign_key => :iconID, :class_name => InvType
+  has_many :landmarks, :foreign_key => :iconID, :class_name => MapLandmark
 end

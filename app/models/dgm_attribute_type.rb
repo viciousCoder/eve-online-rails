@@ -13,5 +13,5 @@ class DgmAttributeType < ActiveRecord::Base
   has_many :npc_activation_chance_effects, :foreign_key => :npcActivationChanceAttributeID, :class_name => DgmEffect
   has_many :fitting_usage_chance_effects, :foreign_key => :fittingUsageChanceAttributeID, :class_name => DgmEffect
   has_many :type_attributes, :foreign_key => :attributeID, :class_name => DgmTypeAttribute
-  has_and_belongs_to_many :inv_types, :join_table => :dgmTypeAttributes, :class_name => InvType, :foreign_key => :attributeID, :association_foreign_key => :typeID  
+  has_and_belongs_to_many :types, :join_table => :dgmTypeAttributes, :class_name => InvType, :foreign_key => :attributeID, :association_foreign_key => :typeID  
 end

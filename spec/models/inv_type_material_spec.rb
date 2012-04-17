@@ -7,6 +7,6 @@ describe InvTypeMaterial do
   it 'should be an instance of InvTypeMaterial' do
     @inv_object.should be_an_instance_of InvTypeMaterial
   end
-  it { should belong_to(:inv_type) }
+  it { should belong_to(:type) }
   it { should belong_to(:material_type) }
 end

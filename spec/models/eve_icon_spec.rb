@@ -19,4 +19,5 @@ describe EveIcon do
   it { should have_many(:groups) }
   it { should have_many(:market_groups) }
   it { should have_many(:types) }
+  it { should have_many(:landmarks) }
 end

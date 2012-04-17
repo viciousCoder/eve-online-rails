@@ -8,4 +8,5 @@ describe EveGraphic do
     @dgm_object.should be_an_instance_of EveGraphic
   end
   it { should have_many(:types) }
+  it { should have_many(:scenes) }
 end

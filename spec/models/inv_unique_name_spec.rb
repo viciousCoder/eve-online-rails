@@ -7,4 +7,6 @@ describe InvUniqueName do
   it 'should be an instance of InvUniqueName' do
     @inv_object.should be_an_instance_of InvUniqueName
   end
+  it { should belong_to(:item) }
+  it { should belong_to(:group) }
 end

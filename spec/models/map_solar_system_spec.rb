@@ -9,4 +9,6 @@ describe MapSolarSystem do
   end
   it { should have_many(:factions) }
   it { should have_many(:corporations) }
+  it { should have_many(:items) }
+  it { should have_many(:landmarks) }
 end

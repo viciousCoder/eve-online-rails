@@ -7,4 +7,5 @@ describe MapLocationWormholeClass do
   it 'should be an instance of MapLocationWormholeClass' do
     @map_object.should be_an_instance_of MapLocationWormholeClass
   end
+  it { should belong_to(:location) }
 end

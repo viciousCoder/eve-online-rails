@@ -19,5 +19,5 @@ describe DgmAttributeType do
   it { should have_many(:npc_activation_chance_effects) }
   it { should have_many(:fitting_usage_chance_effects) }
   it { should have_many(:type_attributes) }
-  # it { should have_and_belong_to_many(:inv_types) }
+  # it { should have_and_belong_to_many(:types) }
 end
