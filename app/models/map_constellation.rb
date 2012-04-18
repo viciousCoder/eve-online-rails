@@ -6,4 +6,6 @@ class MapConstellation < ActiveRecord::Base
   belongs_to :region, :foreign_key => :regionID, :class_name => MapRegion
   belongs_to :faction, :foreign_key => :factionID, :class_name => ChrFaction
   has_many :items, :foreign_key => :constellationID, :class_name => MapDenormalize
+  has_one :denormalize, :foreign_key => :itemID, :class_name => MapDenormalize
+  has_many :solar_systems, :foreign_key => :constellationID, :class_name => MapSolarSystem
 end

@@ -43,6 +43,12 @@ class InvType < ActiveRecord::Base
   belongs_to :race, :foreign_key => :raceID, :class_name => ChrRace
   belongs_to :icon, :foreign_key => :iconID, :class_name => EveIcon
   has_many :denormalized_items, :foreign_key => :typeID, :class_name => MapDenormalize
+  has_many :sun_solar_systems, :foreign_key => :sunTypeID, :class_name => MapSolarSystem
+  has_many :schematic_pin_maps, :foreign_key => :pinTypeID, :class_name => PlanetSchematicsPinMap
+  has_and_belongs_to_many :installable_schematics, :join_table => :planetSchematicsPinMap, :class_name => PlanetSchematic, :foreign_key => :pinTypeID, :association_foreign_key => :schematicID
+  has_many :schematic_type_maps, :foreign_key => :typeID, :class_name => PlanetSchematicsTypeMap
+  has_many :input_for_schematics, :foreign_key => :typeID, :class_name => PlanetSchematicsTypeMap, :conditions => 'isInput = 1'
+  has_many :output_for_schematics, :foreign_key => :typeID, :class_name => PlanetSchematicsTypeMap, :conditions => 'isInput = 0'
 end
 
 # example: getting all contraband: 

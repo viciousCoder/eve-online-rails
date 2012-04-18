@@ -11,4 +11,6 @@ describe MapConstellation do
   it { should belong_to(:region) }
   it { should belong_to(:faction) }
   it { should have_many(:items) }
+  it { should have_one(:denormalize) }
+  it { should have_many(:solar_systems) }
 end

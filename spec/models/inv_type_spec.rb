@@ -41,4 +41,10 @@ describe InvType do
   it { should belong_to(:market_group) }
   it { should belong_to(:icon) }
   it { should have_many(:denormalized_items) }
+  it { should have_many(:sun_solar_systems) }
+  it { should have_many(:schematic_pin_maps) }
+  it { should have_and_belong_to_many(:installable_schematics) }
+  it { should have_many(:schematic_type_maps) }
+  it { should have_many(:input_for_schematics) }
+  it { should have_many(:output_for_schematics) }
 end

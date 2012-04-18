@@ -17,4 +17,6 @@ describe ChrFaction do
   # it { should have_and_belong_to_many(:contraband_types) }
   it { should have_many(:control_tower_resources) }
   it { should have_many(:constellations) }
+  it { should have_many(:regions) }
+  it { should have_many(:solar_systems) }
 end

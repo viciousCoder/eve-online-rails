@@ -10,4 +10,8 @@ describe MapRegion do
   it { should have_many(:constellation_jumps) }
   it { should have_many(:constellations) }
   it { should have_many(:items) }
+  it { should have_many(:jumps) }
+  it { should belong_to(:faction) }
+  it { should have_one(:denormalize) }
+  it { should have_many(:solar_systems) }
 end
