@@ -28,4 +28,5 @@ describe CrpNpcCorporation do
   it { should belong_to(:icon) }
   it { should have_one(:inv_name) }
   it { should have_many(:certificates) }
+  it { should have_many(:assembly_lines) }
 end

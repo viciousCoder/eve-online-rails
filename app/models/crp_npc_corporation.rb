@@ -22,6 +22,7 @@ class CrpNpcCorporation < ActiveRecord::Base
   belongs_to :icon, :foreign_key => :iconID, :class_name => EveIcon
   has_one :inv_name, :foreign_key => :itemID, :class_name => InvName
   has_many :certificates, :foreign_key => :corpID, :class_name => CrtCertificate
+  has_many :assembly_lines, :foreign_key => :ownerID, :class_name => RamAssemblyLine
   
   def investors
     [investor_1, investor_2, investor_3, investor_4].compact
