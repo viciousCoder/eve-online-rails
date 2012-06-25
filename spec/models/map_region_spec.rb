@@ -14,4 +14,6 @@ describe MapRegion do
   it { should belong_to(:faction) }
   it { should have_one(:denormalize) }
   it { should have_many(:solar_systems) }
+  it { should have_many(:assembly_line_stations) }
+  it { should have_many(:stations) }
 end

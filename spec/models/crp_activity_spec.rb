@@ -7,4 +7,5 @@ describe CrpActivity do
   it 'should be an instance of CrpActivity' do
     @crp_object.should be_an_instance_of CrpActivity
   end
+  it { should have_many(:operations) }
 end

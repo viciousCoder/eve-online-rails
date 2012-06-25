@@ -9,4 +9,11 @@ describe StaStation do
   end
   it { should have_many(:agents) }
   it { should have_many(:assembly_lines) }
+  it { should have_many(:assembly_line_stations) }
+  it { should belong_to(:operation) }
+  it { should belong_to(:station_type) }
+  it { should belong_to(:corporation) }
+  it { should belong_to(:solar_system) }
+  it { should belong_to(:constellation) }
+  it { should belong_to(:region) }
 end

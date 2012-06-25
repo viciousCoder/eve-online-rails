@@ -19,4 +19,5 @@ describe ChrFaction do
   it { should have_many(:constellations) }
   it { should have_many(:regions) }
   it { should have_many(:solar_systems) }
+  it { should have_many(:combat_zones) }
 end

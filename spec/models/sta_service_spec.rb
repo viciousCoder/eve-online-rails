@@ -7,4 +7,5 @@ describe StaService do
   it 'should be an instance of StaService' do
     @sta_object.should be_an_instance_of StaService
   end
+  it { should have_many(:operation_services) }
 end

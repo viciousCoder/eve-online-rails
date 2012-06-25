@@ -10,4 +10,6 @@ class MapRegion < ActiveRecord::Base
   belongs_to :faction, :foreign_key => :factionID, :class_name => ChrFaction
   has_one :denormalize, :foreign_key => :itemID, :class_name => MapDenormalize
   has_many :solar_systems, :foreign_key => :regionID, :class_name => MapSolarSystem
+  has_many :assembly_line_stations, :foreign_key => :regionID, :class_name => RamAssemblyLineStation
+  has_many :stations, :foreign_key => :regionID, :class_name => StaStation
 end

@@ -7,4 +7,5 @@ describe TranslationTable do
   it 'should be an instance of TranslationTable' do
     @trn_object.should be_an_instance_of TranslationTable
   end
+  it { should belong_to(:column) }
 end

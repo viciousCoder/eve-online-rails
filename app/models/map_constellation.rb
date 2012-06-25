@@ -8,4 +8,5 @@ class MapConstellation < ActiveRecord::Base
   has_many :items, :foreign_key => :constellationID, :class_name => MapDenormalize
   has_one :denormalize, :foreign_key => :itemID, :class_name => MapDenormalize
   has_many :solar_systems, :foreign_key => :constellationID, :class_name => MapSolarSystem
+  has_many :stations, :foreign_key => :constellationID, :class_name => StaStation
 end

@@ -49,6 +49,9 @@ class InvType < ActiveRecord::Base
   has_many :schematic_type_maps, :foreign_key => :typeID, :class_name => PlanetSchematicsTypeMap
   has_many :input_for_schematics, :foreign_key => :typeID, :class_name => PlanetSchematicsTypeMap, :conditions => 'isInput = 1'
   has_many :output_for_schematics, :foreign_key => :typeID, :class_name => PlanetSchematicsTypeMap, :conditions => 'isInput = 0'
+  has_many :assembly_line_content, :foreign_key => :installationTypeID, :class_name => RamInstallationTypeContent
+  has_many :requirements, :foreign_key => :typeID, :class_name => RamTypeRequirement
+  has_many :required_for, :foreign_key => :requiredTypeID, :class_name => RamTypeRequirement
 end
 
 # example: getting all contraband: 

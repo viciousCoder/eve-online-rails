@@ -47,4 +47,7 @@ describe InvType do
   it { should have_many(:schematic_type_maps) }
   it { should have_many(:input_for_schematics) }
   it { should have_many(:output_for_schematics) }
+  it { should have_many(:assembly_line_content) }
+  it { should have_many(:requirements) }
+  it { should have_many(:required_for) }
 end

@@ -13,4 +13,5 @@ describe MapConstellation do
   it { should have_many(:items) }
   it { should have_one(:denormalize) }
   it { should have_many(:solar_systems) }
+  it { should have_many(:stations) }
 end

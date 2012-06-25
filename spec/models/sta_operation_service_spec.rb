@@ -7,4 +7,6 @@ describe StaOperationService do
   it 'should be an instance of StaOperationService' do
     @sta_object.should be_an_instance_of StaOperationService
   end
+  it { should belong_to(:operation) }
+  it { should belong_to(:service) }
 end

@@ -18,4 +18,9 @@ describe MapSolarSystem do
   it { should belong_to(:constellation) }
   it { should belong_to(:faction) }
   it { should belong_to(:sun_type) }
+  it { should have_many(:assembly_line_stations) }
+  it { should have_many(:stations) }
+  it { should have_one(:center_for_combat_zone) }
+  it { should have_one(:combat_zone_system) }
+  it { should have_one(:combat_zone) }
 end

@@ -6,4 +6,5 @@ class InvGroup < ActiveRecord::Base
   has_many :types, :foreign_key => :groupID, :class_name => InvType
   has_many :unique_names, :foreign_key => :groupID, :class_name => InvUniqueName
   has_many :items, :foreign_key => :groupID, :class_name => MapDenormalize
+  has_many :assembly_line_type_details, :foreign_key => :groupID, :class_name => RamAssemblyLineTypeDetailPerGroup
 end

@@ -12,4 +12,9 @@ class MapSolarSystem < ActiveRecord::Base
   belongs_to :constellation, :foreign_key => :constellationID, :class_name => MapConstellation
   belongs_to :faction, :foreign_key => :factionID, :class_name => ChrFaction
   belongs_to :sun_type, :foreign_key => :sunTypeID, :class_name => InvType
+  has_many :assembly_line_stations, :foreign_key => :solarSystemID, :class_name => RamAssemblyLineStation
+  has_many :stations, :foreign_key => :solarSystemID, :class_name => StaStation
+  has_one :center_for_combat_zone, :foreign_key => :centerSystemID, :class_name => WarCombatZone
+  has_one :combat_zone_system, :foreign_key => :solarSystemID, :class_name => WarCombatZoneSystem
+  has_one :combat_zone, :foreign_key => :solarSystemID, :through => :combat_zone_system
 end

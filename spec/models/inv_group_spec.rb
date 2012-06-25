@@ -11,4 +11,5 @@ describe InvGroup do
   it { should belong_to(:icon) }
   it { should have_many(:types) }
   it { should have_many(:items) }
+  it { should have_many(:assembly_line_type_details) }
 end

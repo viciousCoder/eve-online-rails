@@ -8,4 +8,6 @@ describe RamActivity do
     @ram_object.should be_an_instance_of RamActivity
   end
   it { should have_many(:assembly_lines) }
+  it { should have_many(:assembly_line_types) }
+  it { should have_many(:requirements) }
 end

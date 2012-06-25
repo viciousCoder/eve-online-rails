@@ -9,4 +9,5 @@ describe InvCategory do
   end
   it { should belong_to(:icon) }
   it { should have_many(:groups) }
+  it { should have_many(:assembly_line_type_details) }
 end

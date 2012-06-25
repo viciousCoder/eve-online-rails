@@ -13,4 +13,5 @@ class ChrFaction < ActiveRecord::Base
   has_many :constellations, :foreign_key => :factionID, :class_name => MapConstellation
   has_many :regions, :foreign_key => :factionID, :class_name => MapRegion
   has_many :solar_systems, :foreign_key => :factionID, :class_name => MapSolarSystem
+  has_many :combat_zones, :foreign_key => :factionID, :class_name => WarCombatZone
 end

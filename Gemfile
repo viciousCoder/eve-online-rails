@@ -44,3 +44,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
 end
+
+gem 'simplecov', :require => false, :group => :test

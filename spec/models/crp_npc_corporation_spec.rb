@@ -29,4 +29,6 @@ describe CrpNpcCorporation do
   it { should have_one(:inv_name) }
   it { should have_many(:certificates) }
   it { should have_many(:assembly_lines) }
+  it { should have_many(:assembly_line_stations) }
+  it { should have_many(:stations) }
 end

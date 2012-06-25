@@ -23,6 +23,8 @@ class CrpNpcCorporation < ActiveRecord::Base
   has_one :inv_name, :foreign_key => :itemID, :class_name => InvName
   has_many :certificates, :foreign_key => :corpID, :class_name => CrtCertificate
   has_many :assembly_lines, :foreign_key => :ownerID, :class_name => RamAssemblyLine
+  has_many :assembly_line_stations, :foreign_key => :ownerID, :class_name => RamAssemblyLineStation
+  has_many :stations, :foreign_key => :corporationID, :class_name => StaStation
   
   def investors
     [investor_1, investor_2, investor_3, investor_4].compact
